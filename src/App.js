@@ -28,9 +28,9 @@ class BooksApp extends React.Component {
       	</header>
 
         <div className=" search-books-results">
-   			<CurrentReading books={this.state.books}/>
-      		<WantToRead />
-      		<Read />
+   			<CurrentReading books={this.state.books} />
+      		<WantToRead books={this.state.books} />
+      		<Read books={this.state.books} />
         </div>
       	
        <Route path="/search" component={SearchBook} />

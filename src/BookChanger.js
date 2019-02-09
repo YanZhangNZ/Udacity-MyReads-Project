@@ -7,8 +7,7 @@ class BookChanger extends Component{
   handleBookChanger = (e) => {
     debugger;
     e.preventDefault();
-    this.setState({status:e.target.value},()=>{BooksAPI.update(this.props.book,this.state.status)},()=>{this.props.onStateChange()});
-
+    this.setState({status:e.target.value},()=>{console.log('update',BooksAPI.update(this.props.book,this.state.status)())});
   } 
 
   render(){

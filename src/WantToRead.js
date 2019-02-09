@@ -7,7 +7,7 @@ function WantToRead (props){
    	 <h3>Want to Reading</h3>
      <ol className="books-grid">
      	{props.books.map((book,index)=> (book.shelf === 'wantToRead'&&
-   										<BookInfo key={index} book={book} onStateChange={props.onStateChange}/>)
+   										<BookInfo key={index} book={book} onUpdateBooks={props.onUpdateBooks}/>)
 	)}
   	 </ol> 
    	</div>

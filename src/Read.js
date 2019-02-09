@@ -7,7 +7,7 @@ function Read (props){
    	 <h3>Read</h3>
      <ol className="books-grid">
      	{props.books.map((book,index)=> (book.shelf === 'read'&&
-   										<BookInfo key={index} book={book}/>)
+   										<BookInfo key={index} book={book} onStateChange={props.onStateChange}/>)
 	)}
   	 </ol> 
    	</div>

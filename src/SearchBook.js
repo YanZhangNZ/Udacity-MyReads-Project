@@ -32,7 +32,7 @@ export default class SearchBook extends Component {
         <div className=" search-books-results">
           <ol className="books-grid">
             {this.state.books.map((book,index)=>
-              <BookInfo book={book} key={index}/>  
+              <BookInfo book={book} key={index} onStateChange={this.props.onStateChange}/>  
             )}
           </ol>
         </div>

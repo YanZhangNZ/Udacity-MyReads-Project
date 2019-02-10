@@ -10,13 +10,13 @@ class App extends Component {
     books: []
   }
 
-  componentDidMount = () => {debugger;
+  componentDidMount = () => {
     BooksAPI.getAll().then(books => {
       this.setState({ books: [...books] }, () => { console.log(this.state) })
     });
   }
 
-  updateBooks = () => {
+  updateBooks = () => {debugger;
     BooksAPI.getAll().then(books => {
       this.setState({ books: [...books] }, () => { console.log(this.state) })
     });
@@ -34,7 +34,7 @@ class App extends Component {
         
         <Switch>
           <Route exact path="/" render={() => (<BookShelves books={this.state.books} onUpdateBooks={this.updateBooks}/>)} />
-          <Route path="/search" component={SearchBook}></Route>
+          <Route path="/search" render={()=>(<SearchBook onUpdateBooks={this.updateBooks}/>)} />
         </Switch>
 
       </div>

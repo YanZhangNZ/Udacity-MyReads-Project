@@ -1,16 +1,20 @@
 import React from 'react'
-import CurrentReading from './CurrentReading'
-import WantToRead from './WantToRead'
-import Read from './Read'
+import Shelf from './Shelf'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+const shelfType=['currentlyReading','wantToRead','read'];
 
 function BookShelves(props) {
     return (
         <div className=" search-books-results">
 
-            <CurrentReading books={props.books} onUpdateBooks={props.onUpdateBooks}/>
-            <WantToRead books={props.books} onUpdateBooks={props.onUpdateBooks}/>
-            <Read books={props.books} onUpdateBooks={props.onUpdateBooks}/> 
+            {shelfType.map((shelf,index)=>(
+                <div key={index} className="bookshelf">
+                    <h3>{shelf}</h3>
+                    <Shelf shelf={shelf} books={props.books} onUpdateBooks={props.onUpdateBooks} />
+                </div>
+            ))}
 
             <div className="open-search">
                 <Link to="/search">Add a Book</Link>
@@ -20,5 +24,10 @@ function BookShelves(props) {
         
     )
 }
+//prop-type
+// BookShelves.propTypes = {
+//     books:PropTypes.Object,
+//     onUpdateBooks:PropTypes.function
+// }
 
 export default BookShelves;

@@ -11,11 +11,12 @@ export default class SearchBook extends Component {
   
 
     handleSearch = (e) => {
-    e.preventDefault();
-   BooksAPI.search(e.target.value)
-          .then(res => this.setState({books:[...res]}))
+    e.preventDefault(); 
+
+    if(e.target.value !== '') BooksAPI.search(e.target.value)
+          .then(res => this.setState({books:[  ...res]},()=>{console.log('search',this.state.books)}))
           .catch(err=>console.log(err));
-            console.log('books',this.state.books);  
+    else this.setState({books:[]});
   }
 
   render(){
@@ -26,16 +27,17 @@ export default class SearchBook extends Component {
           <Link to="/" className="close-search">Close</Link>
           <div className="search-books-input-wrapper">               
             <input type="text" placeholder="Search by title or author" value={this.state.keyWord} onChange={this.handleSearch}/>
-          </div>        
+          </div>    
         </div>
 
-        <div className=" search-books-results">
+        {this.state.books && <div className=" search-books-results">
           <ol className="books-grid">
             {this.state.books.map((book,index)=>
               <BookInfo book={book} key={index} onUpdateBooks={this.props.onUpdateBooks}/>  
             )}
           </ol>
-        </div>
+        </div>}
+
       </div>
     )
   }

@@ -11,7 +11,7 @@ function BookShelves(props) {
 
             {shelfType.map((shelf,index)=>(
                 <div key={index} className="bookshelf">
-                    <h3>{shelf}</h3>
+                    <h2>{shelf}</h2>
                     <Shelf shelf={shelf} books={props.books} onUpdateBooks={props.onUpdateBooks} />
                 </div>
             ))}

@@ -16,10 +16,10 @@ class App extends Component {
       this.setState({ books: [...books] }, () => { console.log(this.state) })
     });
   }
-  //how to update books array by replace the previous book with new book?only know the id
+
   updateBooks = (newbook) => {
       const index = this.state.books.findIndex(book=>book.id===newbook.id);
-      this.setState({ books: this.state.books.splice(index,1,newbook)}, () => { console.log(this.state) })
+      this.setState({ books: this.state.books.splice(index,newbook)}, () => { console.log(this.state) })
     };
 
   render() {

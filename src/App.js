@@ -17,9 +17,17 @@ class App extends Component {
     });
   }
 
-  updateBooks = (newbook) => {
-      const index = this.state.books.findIndex(book=>book.id===newbook.id);
-      this.setState({ books: this.state.books.splice(index,newbook)}, () => { console.log(this.state) })
+  updateBooks = (newbook) => {debugger;
+    let newBooks = [...this.state.books];
+      if(!this.state.books.find(book=>book.id===newbook.id)){
+        this.setState({ books: newBooks.push(newbook)}, () => { console.log(this.state.books) });
+      }else{
+        const index=this.state.books.findIndex(book=>book.id===newbook.id);
+        newBooks[index]=newbook;
+        this.setState({books:newBooks}, () => { console.log(this.state.books)})
+      }
+      
+      debugger;
     };
 
   render() {

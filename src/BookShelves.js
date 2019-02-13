@@ -1,7 +1,6 @@
 import React from 'react'
 import Shelf from './Shelf'
 import {Link} from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 const shelfType=['currentlyReading','wantToRead','read'];
 
@@ -25,9 +24,8 @@ function BookShelves(props) {
     )
 }
 //prop-type
-// BookShelves.propTypes = {
-//     books:PropTypes.Object,
-//     onUpdateBooks:PropTypes.function
-// }
+BookShelves.propTypes = {
+    props:React.PropTypes.any
+}
 
 export default BookShelves;

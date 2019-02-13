@@ -23,7 +23,7 @@ function BookShelves(props) {
         
     )
 }
-//prop-type
+//prop-type;still have no idea about propsType in stateless functional component;
 BookShelves.propTypes = {
     props:React.PropTypes.any
 }

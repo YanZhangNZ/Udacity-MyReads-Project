@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 
 class BookChanger extends Component{
+  debugger;
   state={status:''}
 
   handleBookChanger = (e) => {

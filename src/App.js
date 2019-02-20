@@ -20,7 +20,7 @@ class App extends Component {
   updateBooks = (newbook) => {
     let newBooks = [...this.state.books];
       if(!this.state.books.find(book=>book.id===newbook.id)){
-        this.setState({ books: newBooks.push(newbook)}, () => { console.log(this.state.books) });
+        this.setState({ books: newBooks.push(newbook)}, () => { console.log('update books',this.state.books) });
       }else{
         const index=this.state.books.findIndex(book=>book.id===newbook.id);
         newBooks[index]=newbook;

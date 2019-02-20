@@ -2,6 +2,7 @@ import React from 'react'
 import BookInfo from './BookInfo'
 
 function Shelf (props){
+	debugger;
  return(
      <ol className="books-grid">
      	{props.books.map((book,index)=> (

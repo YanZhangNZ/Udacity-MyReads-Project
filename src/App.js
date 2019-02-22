@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   updateBooks = (newbook) => {
+    console.log('new book',newbook);
     let newBooks = [...this.state.books];
       if(!this.state.books.find(book=>book.id===newbook.id)){
         this.setState({ books: newBooks.push(newbook)}, () => { console.log('update books',this.state.books) });

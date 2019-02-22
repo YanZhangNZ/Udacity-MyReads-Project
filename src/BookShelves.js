@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 const shelfType=['currently Reading','want To Read','read'];
 
 function BookShelves(props) {
-    debugger;
     return (
         <div className=" search-books-results">
 
@@ -23,10 +22,6 @@ function BookShelves(props) {
         </div>
         
     )    
-}
-//prop-type;still have no idea about propsType in stateless functional component;
-BookShelves.propTypes = {
-    props:React.PropTypes.any
 }
 
 export default BookShelves;

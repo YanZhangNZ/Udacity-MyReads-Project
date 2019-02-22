@@ -1,22 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import * as BooksAPI from './BooksAPI'
 
-class BookChanger extends Component{
-  debugger;
-  state={status:''}
+function BookChanger(props){
 
-  handleBookChanger = (e) => {
+  const handleBookChanger = (e) => {
     e.preventDefault();
-    this.setState({status:e.target.value},()=>{BooksAPI.update(this.props.book,this.state.status)
-    .then(BooksAPI.get(this.props.book.id).then(res=>this.props.onUpdateBooks(res))      
-    )});
-  } 
+    BooksAPI.update(props.book, e.target.value).then(BooksAPI.get(props.book.id).then(res=> props.onUpdateBooks(res)))
+  }
 
-  render(){
     return(
+
       <div className="book-shelf-changer">
 
-        <select value={this.props.book.shelf?this.props.book.shelf:'none'} onChange={this.handleBookChanger}>
+        <select value={props.book.shelf ?props.book.shelf:'none'} onChange={handleBookChanger}>
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>
@@ -27,5 +23,5 @@ class BookChanger extends Component{
       </div>
     )
   }
-}
+
 export default BookChanger;
